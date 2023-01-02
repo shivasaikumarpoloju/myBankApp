@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form #loginForm = "ngForm" class="form-group"(ngSubmit)="(loginForm.value)" novalidate>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" ngModel name="loginid"class="login__input"required #loginid="ngModel" placeholder="User name / Email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" ngModel name="password" class="login__input" required #password="ngModel"placeholder="Password">
+				</div>
+				<button class="button login__submit" [disabled]="!loginForm.valid" routerLink="homepage">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div  *ngIf="loginid.errors?.['required']&& loginid.touched"style="color:red;"> Login id is mandatory..</div>
+            <div *ngIf="password.errors?.['required']&& password.touched"style="color:red;"> password is mandatory..</div>
+            <div *ngIf="loginid.errors?.['minlength']&& loginid.touched"style="color:red;"> Login id is mandatory..</div>
+            <div *ngIf="password.errors?.['minlength']&& password.touched" > password is mandatory..</div> 
+
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
